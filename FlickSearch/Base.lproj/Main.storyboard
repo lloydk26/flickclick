@@ -1,25 +1,189 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A2301" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HPF-dL-YIP">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--FlickSearch-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="FlickSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="x6q-dh-KGD"/>
+                        <viewControllerLayoutGuide type="bottom" id="U4M-Rw-sA1"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <view key="view" contentMode="scaleToFill" id="tKd-Ii-W3j">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Zja-Cj-ELd">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="f7f-8Y-yLo"/>
+                                </connections>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zv9-h5-UxL">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eD3-RP-RCz">
+                                    <size key="itemSize" width="150" height="150"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="x6m-1L-mBB">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="rfI-JQ-R9f"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="aQk-VF-xWF"/>
+                                </connections>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O2B-RE-a29">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="MyG-PO-eI5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="GO">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="24" name="Verdana"/>
+                                                <font key="NSOriginalFont" size="36" name="Verdana"/>
+                                                <color key="NSUnderlineColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="MyG-PO-eI5"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="MyG-PO-eI5"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="searchImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zzK-Pr-P7K"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="O2B-RE-a29" firstAttribute="trailing" secondItem="tKd-Ii-W3j" secondAttribute="trailingMargin" id="1J9-cp-1hv">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-67"/>
+                            </constraint>
+                            <constraint firstItem="Zv9-h5-UxL" firstAttribute="top" secondItem="Zja-Cj-ELd" secondAttribute="bottom" constant="30" id="7nS-T5-Rq5">
+                                <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                            </constraint>
+                            <constraint firstItem="U4M-Rw-sA1" firstAttribute="top" secondItem="O2B-RE-a29" secondAttribute="bottom" constant="8" id="ADt-c9-a59"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Zv9-h5-UxL" secondAttribute="trailing" id="F2s-hM-96Z"/>
+                            <constraint firstItem="Zja-Cj-ELd" firstAttribute="top" secondItem="x6q-dh-KGD" secondAttribute="bottom" id="FZw-rI-INt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Zja-Cj-ELd" secondAttribute="trailing" constant="-20" id="IkE-8J-BCp"/>
+                            <constraint firstItem="Zja-Cj-ELd" firstAttribute="leading" secondItem="tKd-Ii-W3j" secondAttribute="leadingMargin" constant="-20" id="VXe-ph-PoE"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Zv9-h5-UxL" secondAttribute="leading" id="eIZ-qu-VgC"/>
+                            <constraint firstItem="O2B-RE-a29" firstAttribute="top" secondItem="Zv9-h5-UxL" secondAttribute="bottom" constant="8" id="gR6-Pn-Qg0"/>
+                            <constraint firstItem="O2B-RE-a29" firstAttribute="leading" secondItem="tKd-Ii-W3j" secondAttribute="leadingMargin" id="ogg-in-lrF">
+                                <variation key="heightClass=regular-widthClass=compact" constant="68"/>
+                            </constraint>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Zja-Cj-ELd"/>
+                                <exclude reference="Zv9-h5-UxL"/>
+                                <exclude reference="O2B-RE-a29"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="IkE-8J-BCp"/>
+                                <exclude reference="VXe-ph-PoE"/>
+                                <exclude reference="7nS-T5-Rq5"/>
+                                <exclude reference="F2s-hM-96Z"/>
+                                <exclude reference="eIZ-qu-VgC"/>
+                                <exclude reference="1J9-cp-1hv"/>
+                                <exclude reference="gR6-Pn-Qg0"/>
+                                <exclude reference="ogg-in-lrF"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Zja-Cj-ELd"/>
+                                <include reference="Zv9-h5-UxL"/>
+                                <include reference="O2B-RE-a29"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="IkE-8J-BCp"/>
+                                <include reference="VXe-ph-PoE"/>
+                                <include reference="7nS-T5-Rq5"/>
+                                <include reference="F2s-hM-96Z"/>
+                                <include reference="eIZ-qu-VgC"/>
+                                <include reference="1J9-cp-1hv"/>
+                                <include reference="gR6-Pn-Qg0"/>
+                                <include reference="ogg-in-lrF"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="FlickSearch" id="Agf-IQ-PD9"/>
+                    <connections>
+                        <outlet property="searchBar" destination="Zja-Cj-ELd" id="PUi-Vf-vF3"/>
+                        <outlet property="searchBtn" destination="O2B-RE-a29" id="iOA-Fy-qxh"/>
+                        <outlet property="searchResults" destination="Zv9-h5-UxL" id="1Qg-CX-l5o"/>
+                        <segue destination="3oo-Tq-vlD" kind="show" id="PMW-59-b1b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1449" y="-192"/>
+        </scene>
+        <!--DetailViewController-->
+        <scene sceneID="Ht6-bz-f8x">
+            <objects>
+                <viewController title="DetailViewController" id="3oo-Tq-vlD" customClass="DetailViewController" customModule="FlickSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8JN-6J-vIg"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZY2-el-n1K"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="i3G-h2-ske">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="chb-jG-7eg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2112" y="-192"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="82F-h8-h9v">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HPF-dL-YIP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gs9-La-Mim">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="JhV-Qp-RiH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lWd-iw-Tpb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="604.5" y="-192"/>
         </scene>
     </scenes>
 </document>
